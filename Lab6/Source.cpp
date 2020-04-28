@@ -58,9 +58,9 @@ int main()
 {
 	setlocale(0, "");
 
-	thread t1(Reader);
 	thread t4(Writer);
-	thread t2(Reader);
+	thread t1(Reader);
+	thread t2(Writer);
 	thread t3(Reader);
 
 	t1.join();
