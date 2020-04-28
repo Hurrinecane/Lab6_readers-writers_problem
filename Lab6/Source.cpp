@@ -55,14 +55,16 @@ int main()
 {
 	setlocale(0, "");
 
-	thread t4(Writer);
-	thread t1(Reader);
+	thread t1(Writer);
+	thread t2(Reader);
 	thread t3(Reader);
-	thread t2(Writer);
+	thread t4(Writer);
+	thread t5(Reader);
 
 	t1.join();
 	t2.join();
 	t3.join();
 	t4.join();
+	t5.join();
 	system("pause");
 }
