@@ -35,8 +35,7 @@ void Reader()
 	readersCounter++;
 	if (prev == 0)
 		noReaders.lock();
-	counterAccess.unlock();
-	noWriters.unlock();
+		noWriters.unlock();
 
 	cout << "Reader " << this_thread::get_id() << " start working" << endl;
 	
@@ -44,9 +43,7 @@ void Reader()
 	this_thread::sleep_for(chrono::milliseconds(1000));
 		
 	cout << "Reader " << this_thread::get_id() << " complete the job" << endl;
-
-
-	counterAccess.lock();
+			
 	readersCounter--;
 	int current = readersCounter;
 	if (current == 0)
@@ -60,8 +57,8 @@ int main()
 
 	thread t4(Writer);
 	thread t1(Reader);
-	thread t2(Writer);
 	thread t3(Reader);
+	thread t2(Writer);
 
 	t1.join();
 	t2.join();
